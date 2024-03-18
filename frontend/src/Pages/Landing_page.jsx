@@ -19,7 +19,7 @@ import importedimg2 from "../assets/Images/image_6.png"
 import importedimg3 from "../assets/Images/image_7.png"
 import importedimg4 from "../assets/Images/image_8.png"
 import sellerimg from "../assets/Images/Rectangle 58.png"
-import phone_Img from "../assets/Images/phone.jpg"
+import phone_Img from "../assets/Images/phone.png"
 import axios from "axios";
 
 
