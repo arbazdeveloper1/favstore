@@ -1,0 +1,98 @@
+/* ==========   first section css ===================== */
+.tag_line{
+    width: 400px !important;
+}
+#first_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    background: linear-gradient(90deg, #E7D7C8 81.78%, rgba(231, 215, 200, 0.00) 103.11%);
+}
+
+.my_img{
+    width: 101.5% !important;
+    height: 650px;
+}
+
+.shop{
+    margin-top: 130px;
+}
+.btn{
+    padding: 10px 20px;
+    border-radius: 14px;
+}
+
+
+
+/* ===================================   second section css   ============================ */
+
+.luxury_section{
+    background-color: #EDEAE3;
+}
+.imgg{
+    background: #EDEAE3;
+    width: 94%;
+    height: 90%;
+}
+.favstore_community{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #BD8F6E;
+}
+.happy_customer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #B83736;
+}
+.circle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+.circle{
+    background-color: white;
+    padding: 13px;
+    border-radius: 50%;
+}
+.image-text {
+    margin-top: -7px; 
+    color: white; 
+    font-size: 62px;
+    font-weight: 340;
+}
+.text_line{
+    color: white;
+    margin-top: -19px;
+    font-size: 23px;
+    font-weight: 320;
+}
+
+
+
+
+.form_section{
+    padding-left: 140px ;
+
+}
+
+@font-face{
+    font-family: myfont;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+body{
+    font-family: myfont;
+}
+
+.image-container {
+  background-color: #f0f0f0; /* Light gray background */
+  display: inline-block;
+  padding: 10px;
+}
+
+  
