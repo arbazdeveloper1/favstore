@@ -11,7 +11,7 @@
 }
 
 .my_img{
-    width: 101.5% !important;
+    width: 100% !important;
     height: 650px;
 }
 
@@ -23,6 +23,18 @@
     border-radius: 14px;
 }
 
+
+@media screen and (max-width: 450px){
+    .tag_line{
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .shop{
+        text-align: center;
+    }
+
+}
 
 
 /* ===================================   second section css   ============================ */
@@ -94,5 +106,7 @@ body{
   display: inline-block;
   padding: 10px;
 }
+
+
 
   

@@ -57,9 +57,9 @@ export default function Landing_page() {
       {/* ==============================   section no 1 =============================== */}
       <div className="container-fluid " >
         <div className="row">
-          <div className="col-lg-6 col-md-6 col-sm-12" id="first_div">
+          <div className="col-lg-6 col-md-6 col-sm-12 p-0" id="first_div">
             <div className="mt-5">
-              <h1>
+              <h1 className="tag_line">
                 From Local Cotton<br></br> to Global Imports
               </h1>
               <p className="tag_line mt-4">
@@ -76,7 +76,7 @@ export default function Landing_page() {
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-6 col-sm-12">
+          <div className="col-lg-6 col-md-6 col-sm-12 p-0">
             <img src={cloth_Img} alt="" className="my_img" />
           </div>
         </div>
@@ -594,8 +594,8 @@ export default function Landing_page() {
 <h1>We'd Love to hear<br/> from you!</h1>
 <p>Experince the luxury of quality fabric though our appointment <br/>
 feature, where you can feel and touch each textile, ensuring <br/>satasfaction.</p>
-<div class="image-container">
-  <img src={phone_Img} alt="" class="" />
+<div class="">
+  <img src={phone_Img} alt="" class="img-fluid  " />
 </div>
   </div>
 
