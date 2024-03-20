@@ -86,21 +86,21 @@ export default function Landing_page() {
       {/* ====================================   section no 2 ============================================ */}
       <div className="container-fluid luxury_section">
         <div className="row">
-          <div className="col-lg-6 py-5 d-flex justify-content-center">
+          <div className="col-md-6 py-5 d-flex justify-content-center">
             <img src={second_second_img} alt="" className="imgg" />
           </div>
-          <div className="col-lg-6 d-flex justify-content-center">
-            <div className="mt-5 text-end">
+          <div className="col-md-6 d-flex ">
+            <div className="mt-5 secondDiv">
               <h1>
                 Dive into Luxury,<br></br>Book your Home Visit
               </h1>
-              <p className="tag_line mt-4 text-end">
+              <p className="mt-4 ">
                 Start on a journey of luxury by scheduling a home tour with us.
                 Experience the lavish touch of our premium fabrics in the
                 comfort of your space. Immerse yourself in luxury as we bring
                 the showroom experience directly to your doorstep.
               </p>
-              <div className="shop d-flex justify-content-end">
+              <div className="shop mb-2">
                 <button className="btn btn-lg btn-danger rounded-5">
                   Book Now
                 </button>
@@ -145,7 +145,7 @@ export default function Landing_page() {
 
 
       <div className="container-fluid " style={{ backgroundColor: '#EDEAE3' }}>
-        <div className="text-center py-5" style={{ fontSize: '64px', color: '#000000' }}>Imported Fabrics</div>
+        <div className="text-center py-5" style={{color: '#000000' }}> <h1>Imported Fabrics</h1> </div>
         {/* product  Carousel */}
         <Carousel style={{ overflowX: 'auto' }}>
           <Carousel.Item>
@@ -317,7 +317,7 @@ export default function Landing_page() {
 
       {/* ========================================section 5 accordian products  ========================================= */}
       <div className="container-fluid" style={{ backgroundColor: '#EDEAE3' }}>
-          <div className="col-lg-12 container text-center"  style={{ fontSize: '64px', color: '#000000' }}>Why Trade with us?</div>  
+          <div className="col-lg-12 container text-center"  style={{ color: '#000000' }}> <h1>Why Trade with us?</h1></div>  
         <div className="row" >
          <div className="col-lg-6 " >
             <div className="col-lg-12 mx-5" >
