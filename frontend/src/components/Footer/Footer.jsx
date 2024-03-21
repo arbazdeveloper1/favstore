@@ -10,14 +10,14 @@ export default function Footer (){
       <div className="container-fluid">
         <div className="row">
           {/* First Section: Company Logo */}
-          <div className="col-md-2 footer-section ml-2 mt-5">
+          <div className="col-md-2 footer-section ml-2 mt-5 footer_logo">
             {/* Replace this with your company logo */}
             <img src={Logo} alt="Company Logo" style={{ width: '100px', marginBottom: '10px' }} />
             <p style={{ color: '#fff' }}>Your Company Slogan</p>
           </div>
 
           {/* Second Section: Quick Links */}
-          <div className="col-md-3 footer-section">
+          <div className="col-md-3 col-6 footer-section">
             <h5>Explore</h5>
             <ul className="list-unstyled">
               <li className='mt-2'><a href="#">Shop</a></li>
@@ -30,7 +30,7 @@ export default function Footer (){
           </div>
 
           {/* Third Section: Helpful Links */}
-          <div className="col-md-3 footer-section">
+          <div className="col-md-3 col-6 footer-section">
             <h5>Helpful Links</h5>
             <ul className="list-unstyled">
               <li className='mt-2'><a href="#">Quick Line</a></li>
@@ -44,7 +44,7 @@ export default function Footer (){
           </div>
 
           {/* Fourth Section: Company Info */}
-          <div className="col-md-2 footer-section">
+          <div className="col-md-2 col-6 footer-section">
             <h5>Company Info</h5>
             <ul className="list-unstyled">
               <li className='mt-2'><a href="#">FavStore Fabrics</a></li>
@@ -55,7 +55,7 @@ export default function Footer (){
           </div>
 
           {/* Fifth Section: Address and Social Media */}
-          <div className="col-md-2 footer-section">
+          <div className="col-md-2 col-6 footer-section">
             <h5>Address</h5>
             rz c 18 sita puri 1 delhi 110045,<br></br>
             Mon-Sun 10.00 AM To 7.00 PM

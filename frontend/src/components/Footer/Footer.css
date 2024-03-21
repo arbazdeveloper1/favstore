@@ -21,3 +21,11 @@ color: #fff;
 margin-right: 10;
 font-size: 35px;
 }
+
+
+@media screen and (max-width: 575px){
+.footer_logo{
+  text-align: center;
+}
+  
+}
