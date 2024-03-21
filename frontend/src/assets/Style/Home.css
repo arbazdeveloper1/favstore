@@ -1,3 +1,8 @@
+body{
+    box-sizing: border-box;
+}
+
+
 /* ==========   first section css ===================== */
 .tag_line{
     width: 400px !important;
@@ -41,8 +46,21 @@
     .secondDiv{
         text-align: center;
     }
+
+    .form_section{
+        padding-left: 10px !important;
+    
+    }
 }
 
+
+@media screen and (max-width: 645px){
+
+    .form_section{
+        padding-left: 40px !important;
+    
+    }
+}
 
 /* ===================================   second section css   ============================ */
 
@@ -114,6 +132,8 @@ body{
   padding: 10px;
 }
 
+/* carousel */
 
-
-  
+  .slick-slide >div{
+    margin: 0px 10px;
+  }

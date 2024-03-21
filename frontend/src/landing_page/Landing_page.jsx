@@ -21,7 +21,9 @@ import importedimg4 from "../assets/Images/image_8.png"
 import sellerimg from "../assets/Images/Rectangle 58.png"
 import phone_Img from "../assets/Images/phone.png"
 import axios from "axios";
-
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 // ============================-  sending data in database ===============================
 
@@ -50,6 +52,96 @@ export default function Landing_page() {
       console.log(error);
     }
   }
+
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    autoplay: true, 
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  }
+
+  const importedFabrics = [
+    {
+      imageSrc:importedimg1,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+    {
+      imageSrc:importedimg2,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+    {
+      imageSrc:importedimg3,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+    {
+      imageSrc:importedimg4,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+    {
+      imageSrc:importedimg1,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+    {
+      imageSrc:importedimg2,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+    {
+      imageSrc:importedimg3,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+    {
+      imageSrc:importedimg4,
+      title: 'Pink Handwork Bead',
+      description: 'Lorem ipsum dolor sit amet, consectur dolori',
+      pricingText: 'USD 50/Day',
+    },
+   
+  ]
 
 
   return (
@@ -147,167 +239,27 @@ export default function Landing_page() {
       <div className="container-fluid " style={{ backgroundColor: '#EDEAE3' }}>
         <div className="text-center py-5" style={{color: '#000000' }}> <h1>Imported Fabrics</h1> </div>
         {/* product  Carousel */}
-        <Carousel style={{ overflowX: 'auto' }}>
-          <Carousel.Item>
-            {/* <div className=""> */}
-            <div className="row justify-content-center">
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
+       
+           <div className="p-4">
+            <Slider {...sliderSettings}>
+             {importedFabrics.map((d)=>(
+              <div className="p-2 bg-white" style={{ borderRadius: '35px', width: '20%' }}>
                 <div className="text-center" >
-                  <img src={importedimg1} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
+                  <img src={d.imageSrc} alt="Loading" className="" style={{ width: '98%' }} />
+                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>{d.title}</div>
+                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>{d.description}</div>
                   <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
+                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>{d.pricingText}</div>
                     <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
                   </div>
                 </div>
               </div>
-
-              <div className="col-lg-2 p-2  bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg2} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600'}}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
+             ))}
+              </Slider>
               </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg3} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg4} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-          </Carousel.Item>
-          <Carousel.Item>
-            {/* <div className=""> */}
-            <div className="row justify-content-center">
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg1} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg2} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg3} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg4} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600'}}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-          </Carousel.Item>
-          <Carousel.Item>
-            {/* <div className=""> */}
-            <div className="row justify-content-center">
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg1} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg2} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg3} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg4} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-          </Carousel.Item>
-        </Carousel>
+              
+          
+            
       </div>
 
       <div className="text-center py-2 pb-5" style={{ backgroundColor: '#EDEAE3' }} >
@@ -321,7 +273,7 @@ export default function Landing_page() {
         <div className="row" >
          <div className="col-lg-6 " >
             <div className="col-lg-12 mx-5" >
-              <Accordion className="mt-5 mx-5" style={{backgroundColor:'#EDEAE3'}}>
+              <Accordion className="mt-5" style={{backgroundColor:'#EDEAE3'}}>
                 <AccordionSummary
                   expandIcon={<ArrowDropDownIcon />}
                   aria-controls="panel1-content"
@@ -336,7 +288,7 @@ export default function Landing_page() {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion className="mt-4 mx-5" style={{backgroundColor:'#EDEAE3'}}>
+              <Accordion className="mt-4" style={{backgroundColor:'#EDEAE3'}}>
                 <AccordionSummary
                   expandIcon={<ArrowDropDownIcon />}
                   aria-controls="panel2-content"
@@ -351,7 +303,7 @@ export default function Landing_page() {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion className="mt-4 mx-5" style={{backgroundColor:'#EDEAE3'}}>
+              <Accordion className="mt-4" style={{backgroundColor:'#EDEAE3'}}>
                 <AccordionSummary
                   expandIcon={<ArrowDropDownIcon />}
                   aria-controls="panel1-content"
@@ -366,7 +318,7 @@ export default function Landing_page() {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion className="mt-4 mx-5" style={{backgroundColor:'#EDEAE3'}}>
+              <Accordion className="mt-4" style={{backgroundColor:'#EDEAE3'}}>
                 <AccordionSummary
                   expandIcon={<ArrowDropDownIcon />}
                   aria-controls="panel2-content"
@@ -381,7 +333,7 @@ export default function Landing_page() {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-              <Accordion className="mt-4 mx-5" style={{backgroundColor:'#EDEAE3'}}>
+              <Accordion className="mt-4" style={{backgroundColor:'#EDEAE3'}}>
                 <AccordionSummary
                   expandIcon={<ArrowDropDownIcon />}
                   aria-controls="panel2-content"
@@ -412,169 +364,25 @@ export default function Landing_page() {
 
 
 <div className="container-fluid " style={{ backgroundColor: '#EDEAE3' }}>
-        <div className="text-center py-5" style={{ fontSize: '64px', color: '#000000' }}>Our Best Seller</div>
+        <div className="text-center py-5" style={{ fontSize: '44px', color: '#000000' }}>Our Best Seller</div>
         {/* product  Carousel */}
-        <Carousel style={{ overflowX: 'auto' }}>
-          <Carousel.Item>
-            {/* <div className=""> */}
-            <div className="row justify-content-center">
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
+        <div className="p-4">
+            <Slider {...sliderSettings}>
+             {importedFabrics.map((d)=>(
+              <div className="p-2 bg-white" style={{ borderRadius: '35px', width: '20%' }}>
                 <div className="text-center" >
-                  <img src={importedimg1} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
+                  <img src={d.imageSrc} alt="Loading" className="" style={{ width: '98%' }} />
+                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>{d.title}</div>
+                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>{d.description}</div>
                   <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
+                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>{d.pricingText}</div>
                     <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
                   </div>
                 </div>
               </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg2} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
+             ))}
+              </Slider>
               </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg3} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg4} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-          </Carousel.Item>
-          <Carousel.Item>
-            {/* <div className=""> */}
-            <div className="row justify-content-center">
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg1} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg2} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg3} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg4} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-          </Carousel.Item>
-          <Carousel.Item>
-            {/* <div className=""> */}
-            <div className="row justify-content-center">
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg1} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg2} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg3} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-lg-2 p-2 bg-white mb-5 mx-4" style={{ borderRadius: '35px', width: '20%' }}>
-                <div className="text-center" >
-                  <img src={importedimg4} alt="Loading" className="" style={{ width: '98%' }} />
-                  <div className="text-start mt-3 px-2" style={{ fontSize: '1.4em', fontWeight: '500' }}>Pink Handwok Bead</div>
-                  <div className="text-start  px-2" style={{ fontSize: '1em' }}>Pink Handwok Bead Imported Sequence Thread Embroidery Net Fabric</div>
-                  <div className="row mt-4 mb-2 justify-content-center">
-                    <div className="col-lg-6 text-start mt-2 " style={{ fontSize: '18px',fontWeight:'600' }}>₹700 /Mtr</div>
-                    <button className="col-lg-6 btn btn-lg btn-danger rounded-5" style={{ fontSize: '14px', width: '40%' }}>Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-          </Carousel.Item>
-        </Carousel>
       </div>
 
       <div className="text-center py-2 pb-5" style={{ backgroundColor: '#EDEAE3' }} >
@@ -644,7 +452,7 @@ feature, where you can feel and touch each textile, ensuring <br/>satasfaction.<
 
       {/* ========================================section 8 faqs closed here ========================================= */}
       <div className="container-fluid " style={{ backgroundColor: '#EDEAE3' }}>
-          <div className="container text-center"  style={{ fontSize: '64px', color: '#000000' }}>Commonly Asked Questions</div>  
+          <div className="container text-center"  style={{ fontSize: '44px', color: '#000000' }}>Commonly Asked Questions</div>  
         <div className="row justify-content-center" >
             <div className="col-lg-10  mb-5" >
               <Accordion className="mt-5 mx-5" >
