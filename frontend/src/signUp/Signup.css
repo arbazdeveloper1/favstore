@@ -1,0 +1,133 @@
+
+
+.row_sections{
+    border-radius: 2px;
+    background-color:white;
+    /* background-color: rgba(231, 215, 200, 1); */
+}
+.main_div{
+    border-radius: 2px;
+/* margin-top: 15px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}
+
+
+.div4{
+ background: white;
+
+}
+
+.sec_heading{
+    color:black;
+    font-family: Casual;
+    font-weight: 600;
+}
+
+/* inputs start */
+/* inputs start */
+.form-row {
+    position: relative;
+}
+
+.form-row-field {
+    position: absolute;
+    pointer-events: none;
+    transition: 0.5s;
+    top: 5px;
+    left:5px;
+
+    color: gray;
+    font-family: Casual;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.text_input {
+    position: absolute;
+    top: 2px;
+    transition: 0.5s;
+    width: 95%;
+
+    /* border: none; */
+    border: 2px solid lightgrey; 
+    /* border-bottom: 2px solid lightgrey;  */
+    outline: none;  
+    font-family: Casual;
+    color:#BD8F6E
+}
+
+  
+
+.input_style{
+    border-bottom: 2px solid  rgba(231, 215, 200, 1);
+}
+
+.input_style~label {
+    top: -13px;
+    font-size: 12px;
+    font-weight: 400;
+    
+}     
+/* inputs start end */
+/* inputs start end */
+
+
+.signUpButton{
+    background-color:rgba(184, 55, 54, 1);
+    border: none;
+    margin-bottom: 30px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}
+.disabledSignUpButton{
+    background-color:rgba(231, 215, 200, 1);
+    border: none;
+    margin-bottom: 30px;
+    color:rgba(184, 55, 54, 1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.password_guideline{
+    font-size: 12px;
+    font-family: Casual;
+}
+
+
+
+.li_light{
+    color: rgba(128, 128, 128, 0.797);
+    font-size: 15px;
+}
+.li_links{
+    color: #BD8F6E;
+    text-decoration: none;
+}
+
+
+.border-bage{
+    border-color: rgba(184, 55, 54, 1) !important;
+}
+
+.buttonCommonText{
+    font-family: Casual;
+}
+
+.mainBodyDiv{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.rounded-littleSharp{
+    border-radius: 2px;
+}
+
+@media only screen and (max-width: 576px) {
+    .mainBodyDiv{
+        justify-content: center;
+        padding:25px !important
+    }  
+}
+  
