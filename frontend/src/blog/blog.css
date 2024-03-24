@@ -1,0 +1,22 @@
+.modal-open{
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  
+.brownBg{
+    background-color: #b83736;
+}
+
+.float_end{
+    float: right;
+}
+
+.tableContentRows td{
+height:auto;
+vertical-align: center;
+}
+
+.editDeleteIcon{
+    font-size: 24px;
+}

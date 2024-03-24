@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const route = express.Router();
-const connection = require('../db/connection')
+const connection = require('../db/connection');
+const multer = require('multer');
 
 
 const nodemailer=require('nodemailer');//to be installed
@@ -250,6 +251,93 @@ if(confirmPassword===password){
 
 
 
+
+
+
+
+
+
+
+
+
+
+let storage1= multer.diskStorage({
+  destination: (req, file, cb) => {
+      if(file){
+          cb(null, './../frontend/public');
+      }},
+  filename:(req,file,cb)=>{
+if(file){
+  cb(null, file.fieldname.replaceAll(' ','')+Date.now()+generateRandomValue()+file.originalname.replaceAll(' ',''));
+}
+  }
+});
+
+const upload = multer({ storage: storage1 });
+
+
+
+  
+route.post('/addBlog', upload.single('image'), (req, res) => {
+  try{
+
+    if (!req.file) {
+      return res.status(400).send('No file uploaded.');
+    }
+    const {title,content}=req.body;
+    connection.query(`INSERT INTO blog_post(blog_title, blog_content, blog_img, created_by) VALUES(?, ?, ?, ?)`, [title, content, req.file.filename, ''], (err1, res1)=>{
+      if(err1) throw err1;
+      res.status(200).json({success:true,
+      msg:'Blog Added'});
+    })
+
+  }catch(err){
+    console.log(err);
+    return res.status(400).send('something went wrong');
+  }
+});
+
+
+route.post('/editBlog', upload.single('image'), (req, res) => {
+  try{
+    const {id, title,content}=req.body;
+
+    let query=`UPDATE blog_post SET blog_title=?, blog_content=? WHERE id=?`;
+    let dataArray=[title, content, id];
+    
+    if (req.file) {
+      query=`UPDATE blog_post SET blog_title=?, blog_content=?, blog_img=? WHERE id=?`;
+      dataArray=[title, content, req.file.filename, id];
+    }
+
+    connection.query(query, dataArray, (err1, res1)=>{
+      if(err1) throw err1;
+      res.status(200).json({success:true,
+      msg:'Blog Added'});
+    })
+
+  }catch(err){
+    console.log(err);
+    return res.status(400).send('something went wrong');
+  }
+});
+
+
+
+
+route.get('/getAllBlogs', async(req,res)=>{
+  try{
+    
+    connection.query(`SELECT id, blog_title, blog_content, blog_img, DATE_FORMAT(created_at, '%d-%m-%Y %H:%i:%s') AS created_at FROM blog_post ORDER BY id DESC`, (err1,res1)=>{
+      if(err1) throw err1;
+      res.status(200).json({success:true, data:res1});
+    })
+
+  }catch(err){
+console.log(err);
+res.status(400).send('something went wrong')
+  }
+})
 
 
 
